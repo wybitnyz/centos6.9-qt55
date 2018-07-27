@@ -5,6 +5,8 @@ ENV PATH="${PATH}:/opt/qt/5.5/gcc_64/bin/"
 ADD qt-installer-noninteractive.qs .
 
 RUN yum install -y yum install yum-utils &&  yum groupinstall -y "Development Tools" && yum install -y git libstdc++-devel make mesa-libGL-devel \
+  && wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo \
+  && yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++ \
   && curl -sSL https://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run -o qt.run \
   && chmod +x qt.run \
   && sync \
@@ -20,3 +22,5 @@ RUN yum install -y yum install yum-utils &&  yum groupinstall -y "Development To
     /opt/qt/Docs \
     /opt/qt/network.xml \
     /opt/qt/Examples
+
+ENTRYPOINT [ "scl" "enable" "devtoolset-2" "--" ]
