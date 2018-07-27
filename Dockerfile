@@ -6,7 +6,7 @@ ADD qt-installer-noninteractive.qs .
 
 RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum install -y git wget curl libstdc++-devel make mesa-libGL-devel \
   && wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo \
-  && yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++ \
+  && yum install -y devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++ \
   && curl -sSL https://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run -o qt.run \
   && chmod +x qt.run \
   && sync \
