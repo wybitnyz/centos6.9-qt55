@@ -21,14 +21,14 @@ Controller.prototype.IntroductionPageCallback = function() {
 
 Controller.prototype.TargetDirectoryPageCallback = function()
 {
-    gui.currentPageWidget().TargetDirectoryLineEdit.setText("/opt/qt5.5.1");
+    gui.currentPageWidget().TargetDirectoryLineEdit.setText("/opt/qt");
     gui.clickButton(buttons.NextButton, 3000);
 }
 
 Controller.prototype.ComponentSelectionPageCallback = function() {
     var widget = gui.currentPageWidget();
     widget.deselectAll();
-    widget.selectComponent("qt.551.gcc_64");
+    widget.selectComponent("qt.55.gcc_64");
 
     gui.clickButton(buttons.NextButton, 3000);
 }
