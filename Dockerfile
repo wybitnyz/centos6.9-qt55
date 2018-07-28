@@ -11,6 +11,8 @@ RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum i
   && chmod +x qt.run \
   && sync \
   && ./qt.run --platform minimal --script qt-installer-noninteractive.qs -v \
+  && source /opt/rh/devtoolset-2/enable \
+  && alias git2http="sed -i -e 's : / ' -e 's git@ http:// '  .gitmodules" \
   && rm -rf \
     qt.run \
     /var/lib/apt/lists/* \
@@ -22,5 +24,3 @@ RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum i
     /opt/qt/Docs \
     /opt/qt/network.xml \
     /opt/qt/Examples
-
-ENTRYPOINT [ "scl" "enable" "devtoolset-2" "--" ]
