@@ -1,6 +1,6 @@
-#!/bin/bash
-
-source /opt/rh/devtoolset-2/enable \
+#!/bin/bash -x
+echo "Building reposiotory ${1} on branch ${2}."
+source /opt/rh/devtoolset-2/enable
 git clone ${1} repository
 cd repository
 git checkout ${2}
