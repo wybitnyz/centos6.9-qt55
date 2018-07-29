@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /opt/rh/devtoolset-2/enable \
 git clone ${1} repository
 cd repository
 git checkout ${2}
