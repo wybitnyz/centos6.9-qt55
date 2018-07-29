@@ -25,4 +25,4 @@ RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum i
     /opt/qt/Docs \
     /opt/qt/network.xml \
     /opt/qt/Examples
-ENTRYPOINT [ "bash" "-c" "./entrypoint.sh" ]
+ENTRYPOINT ["/bin/bash", "-c", "./entrypoint.sh"]
