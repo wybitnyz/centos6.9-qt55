@@ -3,7 +3,7 @@
 git clone ${1} repository
 cd repository
 git checkout ${2}
-git2http
+sed -i -e 's : / ' -e 's git@ http:// ' .gitmodules
 git submodule update --init
 ./build.sh
 cp release/* /out
