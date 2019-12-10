@@ -22,6 +22,4 @@ RUN yum install -y yum-utils && yum groupinstall -y "Development Tools" && yum i
     /opt/qt/network.xml \
     /opt/qt/Examples
 
-SHELL [ "/usr/bin/scl", "enable", "devtoolset-2", "bash"]
-
-ENTRYPOINT ["/bin/bash"]
+RUN echo $'\nsource scl_source enable devtoolset-2' >> /root/.bashrc
